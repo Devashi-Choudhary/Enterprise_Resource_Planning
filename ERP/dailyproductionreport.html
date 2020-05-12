@@ -1,0 +1,86 @@
+<html>
+<head>
+  <title>TSIERP</title>
+  <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <style type="text/css">
+  body {overflow-x: hidden;}
+    .navbar
+    {
+      z-index: 10;
+      width: 100%;
+      position: fixed;
+    }
+  </style>
+<script> 
+    $(function(){
+      $("#includedContent").load("header.html"); 
+    });
+    </script> 
+</head>
+<body>
+ <div id="includedContent"></div>
+     
+  <form role="form" action="dailyproductionreport.php">
+  <table class="table table-bordered table-hover" id="tab_logic">
+  <thead>
+  <tr>
+    <th class="text-center" colspan="2">T S Industries Govindpura Bhopal</th>
+    <th class="text-center" colspan="1">Daily Production Report</th>
+    <th class="text-center" colspan="1">Format number: TSI/PROD/03<br>Revision No.:00</th>
+  </tr>
+  <tr>
+  <th colspan="4">Date</th>
+  </tr>
+  <tr>
+    <th class="text-center">S No.</th>
+    <th class="text-center">Name of Workers</th>
+    <th class="text-center">W.O.No.</th>
+    <th class="text-center">Work Allocated</th>
+  </tr>
+</thead>
+    <tbody>
+    <tr id='addr0'>
+      <td>1</td> 
+     <td><input type="text" name='name' class="form-control"/>
+    <td><input type="text" name='wno' class="form-control"/>
+    <td><input type="text" name='allocation' class="form-control"/>
+    </tr>
+      <tr id='addr1'></tr>
+    </tbody>
+  </table>
+ <a id="add_row" class="btn btn-default pull-left">Add Row</a><a id='delete_row' class="pull-right btn btn-default">Delete Row</a>
+      <br>
+      <br>
+      <br>
+    <button type="submit" name="submit" class="btn btn-default">Submit</button>
+ 
+
+</form>
+           
+            
+<script type="text/javascript">
+      $(document).ready(function(){
+      var i=1;
+     $("#add_row").click(function(){
+      $('#addr'+i).html("<td>"+ (i+1) +"</td><td><input name='name"+i+"' type='text' class='form-control input-md'  /> </td></td><td><input name='wno"+i+"' type='text' class='form-control input-md'  /> </td></td><td><input name='allocation"+i+"' type='text' class='form-control input-md'  /> </td></td>");
+
+      $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
+      i++; 
+  });
+     $("#delete_row").click(function(){
+    	 if(i>1){
+		 $("#addr"+(i-1)).html('');
+		 i--;
+		 }
+	 });
+
+});
+  
+  
+
+</script>
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+</body>
+</html>

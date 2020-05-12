@@ -1,0 +1,154 @@
+<html>
+<head>
+  <title>TSIERP</title>
+  <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <style type="text/css">
+  body {overflow-x: hidden;}
+   .navbar
+    {
+      z-index: 10;
+      width: 100%;
+      position: fixed;
+    }
+  </style>
+<script> 
+    $(function(){
+      $("#includedContent").load("header.html"); 
+    });
+    </script> 
+</head>
+<body>
+ <div id="includedContent"></div>
+   
+<div class="col-sm-offset-5 col-sm-12">
+  <h2><span style="font-family: verdana">QUOTATION</span></h2>
+                </div>
+  <br>
+  <form role="form" action="quotation.php">
+    <div class="form-group row">
+      <div class="col-md-2 col-md-offset-2">
+      <label for="To">To:</label></div>
+      <div class="col-md-7 col-md-offset-right-1">
+        <input type="text" name="name" class="form-control" id="" placeholder="Enter receivers name"></div>
+    </div>
+    <div class="form-group row">
+      <div class="col-md-2 col-md-offset-2">
+      <label for="To">ID:</label></div>
+      <div class="col-md-7 col-md-offset-right-1">
+        <input type="text" name="qid" class="form-control" id="" placeholder="Enter id"></div>
+    </div>
+      <div class="form-group row">
+      <div class="col-md-2 col-md-offset-2">
+      <label for="address">Address:</label></div>
+      <div class="col-md-7 col-md-offset-right-1">
+      <textarea class="form-control" name="address" rows="3" id="" placeholder="Enter address"></textarea></div>
+    </div>
+       <div class="form-group row">
+      <div class="col-md-2 col-md-offset-2">
+      <label for="email">contact:</label></div>
+      <div class="col-md-7 col-md-offset-right-1">
+        <textarea class="form-control" rows="3" name="contact" id="" placeholder="Enter contact"></textarea></div>
+    </div>
+          <table class="table table-bordered table-hover" id="tab_logic">
+				<thead>
+					<tr >
+						<th class="text-center">
+							#
+						</th>
+						<th class="text-center">
+							Item
+						</th>
+						<th class="text-center">
+				Project
+						</th>
+						<th class="text-center">
+				Delivery Schedule
+						</th>
+
+                    <th class="text-center">
+				unit
+						</th>
+<th class="text-center">
+							Rate per peice
+						</th>
+<th class="text-center">
+							Total
+						</th>
+
+                    </tr>
+				</thead>
+				<tbody>
+					<tr id='addr0'>
+						<td>
+						1
+						</td>
+						<td>
+						<input type="text" name='item[]'  placeholder='Name' class="form-control"/>
+						</td>
+						<td>
+						<input type="text" name='project[]' placeholder='Mail' class="form-control"/>
+						</td>
+						<td>
+						<input type="text" name='delivery[]' placeholder='Mobile' class="form-control"/>
+
+                    </td>
+                        <td>
+						<input type="text" name='unit[]' placeholder='Mobile' class="form-control"/>
+						</td>
+
+                        <td>
+						<input type="text" name='rate[]' placeholder='Mobile' class="form-control"/>
+						</td>
+
+                        <td>
+						<input type="text" name='total[]' placeholder='Mobile' class="form-control"/>
+						</td>
+
+                        					</tr>
+                    <tr id='addr1'></tr>
+				</tbody>
+			</table>
+		<a id="add_row" class="btn btn-default pull-left">Add Row</a><a id='delete_row' class="pull-right btn btn-default">Delete Row</a>
+      <br>
+      <br>
+      <br>
+    <button type="submit" name="submit" class="btn btn-default">Submit</button>
+ 
+
+
+</form>
+           
+            
+<script type="text/javascript">
+      $(document).ready(function(){
+      var i=1;
+     $("#add_row").click(function(){
+      $('#addr'+i).html("<td>"+ (i+1) +"</td><td><input name='item[]"+i+"' type='text' placeholder='Name' class='form-control input-md'  /> </td><td><input  name='project[]"+i+"' type='text' placeholder='Mail'  class='form-control input-md'></td><td><input  name='delivery[]"+i+"' type='text' placeholder='Mobile'  class='form-control input-md'></td><td><input name='unit[]"+i+"' type='text' placeholder='Name' class='form-control input-md'  /> </td><td><input  name='rate[]"+i+"' type='text' placeholder='Mail'  class='form-control input-md'></td><td><input  name='total[]"+i+"' type='text' placeholder='Mobile'  class='form-control input-md'></td>");
+
+      $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
+      i++; 
+  });
+     $("#delete_row").click(function(){
+    	 if(i>1){
+		 $("#addr"+(i-1)).html('');
+		 i--;
+		 }
+	 });
+
+});
+  
+  
+
+</script>
+
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+</body>
+</html>
+
+  
+ 
+
+  
+

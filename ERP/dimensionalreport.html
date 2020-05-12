@@ -1,0 +1,154 @@
+<html>
+<head>
+  <title>TSIERP</title>
+  <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <style type="text/css">
+  body {overflow-x: hidden;}
+    .navbar
+    {
+      z-index: 10;
+      width: 100%;
+      position: fixed;
+    }
+  </style>
+<script> 
+    $(function(){
+      $("#includedContent").load("header.html"); 
+    });
+    </script> 
+</head>
+<body>
+ <div id="includedContent"></div>
+  
+  
+  
+  
+   
+  <form action="dimensionalphp.php">
+  <table class="table table-bordered table-hover" id="tab_logic">
+  <thead>
+  <tr>
+    <th class="text-center" colspan="5">T S Industries Govindpura Bhopal</th>
+    <th class="text-center" colspan="5">Dimensional report</th>
+    <th class="text-center" colspan="3">Format No.:TSI/STR/01<br>Revision No.:00</th>
+  </tr>
+  <tr>
+    <th class="text-center" colspan="3">Customer</th>
+    <td colspan="4"><input type="text" name='cust' class="form-control"/>
+    <th class="text-center" colspan="2">Supplier</th>
+    <td colspan="4"><input type="text" name='supp' class="form-control"/>
+  </tr>
+  <tr>
+    <th class="text-center" colspan="3">P.O.</th>
+    <td colspan="4"><input type="text" name='pono' class="form-control"/>
+    <th class="text-center" colspan="2">TSI/W.O. No.</th>
+    <td colspan="4"><input type="text" name='wono' class="form-control"/>
+  </tr>
+  <tr>
+    <th class="text-center" colspan="3">Date</th>
+    <td colspan="4"><input type="text" name='date1' class="form-control"/>
+    <th class="text-center" colspan="2">Description</th>
+    <td colspan="4"><input type="text" name='desc' class="form-control"/>
+  </tr>
+  <tr>
+    <th class="text-center" colspan="3">Amendment No.</th>
+    <td colspan="4"><input type="text" name='amd' class="form-control"/>
+    <th class="text-center" colspan="2">TSI Drg. No. & Rev.</th>
+    <td colspan="4"><input type="text" name='tsidrgno' class="form-control"/>
+  </tr>
+  <tr>
+    <th class="text-center" colspan="3">Date</th>
+    <td colspan="4"><input type="text" name='date2' class="form-control"/>
+    <th class="text-center" colspan="2">Qty. & S.No.</th>
+    <td colspan="4"><input type="text" name='qty' class="form-control"/>
+  </tr>
+  <tr>
+    <th class="text-center" colspan="3">Description</th>
+    <td colspan="4"><input type="text" name='desc2' class="form-control"/>
+    <th class="text-center" colspan="2">Page No.</th>
+    <td colspan="4"><input type="text" name='pgno' class="form-control"/>
+  </tr>
+   <tr>
+    <th class="text-center" colspan="3">Drg. No. & Rev.</th>
+    <td colspan="4"><input type="text" name='drgno' class="form-control"/>
+    <th class="text-center" colspan="6"></th>
+  </tr>
+  <tr>
+  <th class="text-center" colspan="13">COMPLAINT DETAILS</th>
+  </tr>
+  <tr>
+    <th class="text-center">S No.</th>
+    <th class="text-center">Dimensions as per Drg.(in mm)</th>
+    <th class="text-center" colspan="10">Observed Dimensions (in mm)</th>
+    <th class="text-center">Remarks</th>
+ </tr>
+ <tr>
+   <th></th>
+   <th></th>
+   <th class="text-center">S No.</th>
+   <th class="text-center">S No.</th>
+   <th class="text-center">S No.</th>
+   <th class="text-center">S No.</th>
+   <th class="text-center">S No.</th>
+   <th class="text-center">S No.</th>
+   <th class="text-center">S No.</th>
+   <th class="text-center">S No.</th>
+   <th class="text-center">S No.</th>
+   <th class="text-center">S No.</th>
+ </tr>
+</thead>
+    <tbody>
+    <tr id='addr0'>
+      <td>1</td> 
+    <td><input type="text" name='dimndg[]' class="form-control"/>
+    <td><input type="text" name='sno2[]' class="form-control"/>
+    <td><input type="text" name='sno3[]' class="form-control"/>
+    <td><input type="text" name='sno4[]' class="form-control"/>
+    <td><input type="text" name='sno5[]' class="form-control"/>
+    <td><input type="text" name='sno6[]' class="form-control"/>
+    <td><input type="text" name='sno7[]' class="form-control"/>
+    <td><input type="text" name='sno8[]' class="form-control"/>
+    <td><input type="text" name='sno9[]' class="form-control"/>
+    <td><input type="text" name='sno10[]' class="form-control"/>
+    <td><input type="text" name='sno11[]' class="form-control"/>
+    <td><input type="text" name='remark[]' class="form-control"/>
+    </tr>
+      <tr id='addr1'></tr>
+    </tbody>
+  </table>
+ <a id="add_row" class="btn btn-default pull-left">Add Row</a><a id='delete_row' class="pull-right btn btn-default">Delete Row</a>
+      <br>
+      <br>
+      <br>
+    <button type="submit" name="submit" class="btn btn-default">Submit</button>
+ 
+
+</form>
+           
+            
+<script type="text/javascript">
+      $(document).ready(function(){
+      var i=1;
+     $("#add_row").click(function(){
+      $('#addr'+i).html("<td>"+ (i+1) +"</td><td><input name='dimndg[]"+i+"' type='text' class='form-control input-md'  /> </td></td><td><input name='sno2[]"+i+"' type='text' class='form-control input-md'  /> </td></td><td><input name='sno3[]"+i+"' type='text' class='form-control input-md'  /> </td></td><td><input name='sno4[]"+i+"' type='text' class='form-control input-md'  /> </td></td><td><input name='sno5[]"+i+"' type='text' class='form-control input-md'  /> </td></td><td><input name='sno6[]"+i+"' type='text' class='form-control input-md'  /> </td></td><td><input name='sno7[]"+i+"' type='text' class='form-control input-md'  /> </td></td><td><input name='sno8[]"+i+"' type='text' class='form-control input-md'  /> </td></td><td><input name='sno9[]"+i+"' type='text' class='form-control input-md'  /> </td><td><input name='sno10[]"+i+"' type='text' class='form-control input-md'  /> </td><td><input name='sno11[]"+i+"' type='text' class='form-control input-md'  /> </td><td><input name='remark[]"+i+"' type='text' class='form-control input-md'  /> </td></td>");
+
+      $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
+      i++; 
+  });
+     $("#delete_row").click(function(){
+    	 if(i>1){
+		 $("#addr"+(i-1)).html('');
+		 i--;
+		 }
+	 });
+
+});
+  
+  
+
+</script>
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+</body>
+</html>

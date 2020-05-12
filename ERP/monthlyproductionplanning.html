@@ -1,0 +1,95 @@
+<html>
+<head>
+  <title>TSIERP</title>
+  <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <style type="text/css">
+  body {overflow-x: hidden;}
+    .navbar
+    {
+      z-index: 10;
+      width: 100%;
+      position: fixed;
+    }
+  </style>
+<script> 
+    $(function(){
+      $("#includedContent").load("header.html"); 
+    });
+    </script> 
+</head>
+<body>
+ <div id="includedContent"></div>
+   
+  
+  
+  
+  
+   
+  <form role="form" action="monthlyproductionplanning.php">
+  <table class="table table-bordered table-hover" id="tab_logic">
+  <thead>
+  <tr>
+    <th class="text-center" colspan="2">T S Industries Govindpura Bhopal</th>
+    <th class="text-center" colspan="2">Monthly Production Planning</th>
+    <th class="text-center" colspan="2">Format number: TSI/PROD/01<br>Revision No.:00</th>
+  </tr>
+  <tr>
+  <th colspan="10">Date</th>
+  </tr>
+  <tr>
+    <th class="text-center">S No.</th>
+    <th class="text-center">Customer Name</th>
+    <th class="text-center">Description</th>
+    <th class="text-center">Quantity</th>
+    <th class="text-center">W.O.No.</th>
+    <th class="text-center">Expected Delivery Date</th>
+  </tr>
+</thead>
+    <tbody>[]
+    <tr id='addr0'>
+      <td>1</td> 
+     <td><input type="text" name='custnm[]' class="form-control"/>
+    <td><input type="text" name='desc[]' class="form-control"/>
+    <td><input type="text" name='quant[]' class="form-control"/>
+    <td><input type="text" name='wono[]' class="form-control"/>
+    <td><input type="text" name='exdate[]' class="form-control"/>
+    </tr>
+      <tr id='addr1'></tr>
+    </tbody>
+  </table>
+ <a id="add_row" class="btn btn-default pull-left">Add Row</a><a id='delete_row' class="pull-right btn btn-default">Delete Row</a>
+      <br>
+      <br>
+      <br>
+    <button type="submit" name="submit" class="btn btn-default">Submit</button>
+ 
+
+</form>
+           
+            
+<script type="text/javascript">
+      $(document).ready(function(){
+      var i=1;
+     $("#add_row").click(function(){
+      $('#addr'+i).html("<td>"+ (i+1) +"</td><td><input name='custnm[]"+i+"' type='text' class='form-control input-md'  /> </td></td><td><input name='desc[]"+i+"' type='text' class='form-control input-md'  /> </td></td><td><input name='quant[]"+i+"' type='text' class='form-control input-md'  /> </td></td><td><input name='wono[]"+i+"' type='text' class='form-control input-md'  /> </td></td><td><input name='exdate[]"+i+"' type='text' class='form-control input-md'  /> </td></td>");
+
+      $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
+      i++; 
+  });
+     $("#delete_row").click(function(){
+    	 if(i>1){
+		 $("#addr"+(i-1)).html('');
+		 i--;
+		 }
+	 });
+
+});
+  
+  
+
+</script>
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+</body>
+</html>

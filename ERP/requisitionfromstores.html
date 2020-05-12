@@ -1,0 +1,98 @@
+<html>
+<head>
+  <title>TSIERP</title>
+  <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <style type="text/css">
+  body {overflow-x: hidden;}
+    .navbar
+    {
+      z-index: 10;
+      width: 100%;
+      position: fixed;
+    }
+  </style>
+<script> 
+    $(function(){
+      $("#includedContent").load("header.html"); 
+    });
+    </script> 
+</head>
+<body>
+ <div id="includedContent"></div>
+   
+  
+  
+  
+  
+  
+   
+  
+  <form action="requisitionfromstores.php">
+  <table class="table table-bordered table-hover" id="tab_logic">
+  <thead>
+  <tr class="">
+    <th class="text-center" colspan="2">T S Industries Govindpura Bhopal</th>
+    <th class="text-center" colspan="2">REQUISITION FROM STORES</th>
+    <th class="text-center" colspan="1">Format No.:TSI/STR/03<br>Revision No.:</th>
+  </tr>
+  <tr>
+      <th class="left" colspan="5"><div class="row"><div class="col-md-1">Date</div><div class="col-md-2"><input type="text" name="date" class="form-control"/></div><div class="col-md-5"></div><div class="col-md-2">Requisition number</div><div class="col-md-2"><input type="text" name="reqno" class="form-control"/></div></div></th>
+  </tr>
+  <tr>
+    <th class="text-center">S No.</th>
+    <th class="text-center">ITEM</th>
+    <th class="text-center">QTY Required</th>
+    <th class="text-center">Approved Qty</th>
+    <th class="text-center">Remarks if any</th>
+  </tr>
+</thead>
+    <tbody>
+    <tr id='addr0'>
+               <td>
+						1
+						</td> 
+    
+    <td><input type="text" name="item[]" class="form-control"/>
+    <td><input type="text" name="qtyreq[]" class="form-control"/>
+    <td><input type="text" name="appqty[]" class="form-control"/>
+    <td><input type="text" name="remarks[]" class="form-control"/>
+    </tr>
+      <tr id='addr1'></tr>
+    </tbody>
+  </table>
+ <a id="add_row" class="btn btn-default pull-left">Add Row</a><a id='delete_row' class="pull-right btn btn-default">Delete Row</a>
+      <br>
+      <br>
+      <br>
+    <button type="submit" name="submit" class="btn btn-default" name="requisitionfromstores" value="requisitionfromstores">Submit</button>
+ 
+
+</form>
+           
+            
+<script type="text/javascript">
+      $(document).ready(function(){
+      var i=1;
+     $("#add_row").click(function(){
+      $('#addr'+i).html("<td>"+ (i+1) +"</td><td><input name='item[]"+i+"' type='text' class='form-control input-md'  /> </td></td><td><input name='qtyreq[]"+i+"' type='text' class='form-control input-md'  /> </td></td><td><input name='appqty[]"+i+"' type='text' class='form-control input-md'  /> </td></td><td><input name='remarks[]"+i+"' type='text' class='form-control input-md'  /></td>");
+
+      $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
+      i++; 
+  });
+     $("#delete_row").click(function(){
+    	 if(i>1){
+		 $("#addr"+(i-1)).html('');
+		 i--;
+		 }
+	 });
+
+});
+  
+  
+
+</script>
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+</body>
+</html>

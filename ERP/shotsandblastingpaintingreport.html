@@ -1,0 +1,91 @@
+<html>
+<head>
+  <title>TSIERP</title>
+  <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <style type="text/css">
+  body {overflow-x: hidden;}
+    .navbar
+    {
+      z-index: 10;
+      width: 100%;
+      position: fixed;
+    }
+  </style>
+<script> 
+    $(function(){
+      $("#includedContent").load("header.html"); 
+    });
+    </script> 
+</head>
+<body>
+ <div id="includedContent"></div>
+   
+  
+  
+  
+   
+  <form action="shotsandblastingpaintingreport.php">
+  <table class="table table-bordered table-hover" id="tab_logic">
+  <thead>
+  <tr>
+    <th class="text-center" colspan="5">T S Industries Govindpura Bhopal</th>
+    <th class="text-center" colspan="5">Shot/ Sand Blasting & Painting Report</th>
+    <th class="text-center" colspan="3">Format No.:TSI/QC/06<br>Revision No.:00</th>
+  </tr>
+  <tr>
+    <th class="text-center" colspan="3">Customer</th>
+    <td colspan="4"><input type="text" name='customer' class="form-control"/>
+    <th class="text-center" colspan="2">Supplier</th>
+    <td colspan="4"><input type="text" name='supplier' class="form-control"/>
+  </tr>
+  <tr>
+    <th class="text-center" colspan="3">P.O. No.</th>
+    <td colspan="4"><input type="text" name='pono' class="form-control"/>
+    <th class="text-center" colspan="2">TSI W.O. No.</th>
+    <td colspan="4"><input type="text" name='wono' class="form-control"/>
+  </tr>
+  <tr>
+    <th class="text-center" colspan="3">Date</th>
+    <td colspan="4"><input type="text" name='date' class="form-control"/>
+    <th class="text-center" colspan="2">Description</th>
+    <td colspan="4"><input type="text" name='desc' class="form-control"/>
+  </tr>
+  <tr>
+    <th class="text-center" colspan="3">Amendment No.</th>
+    <td colspan="4"><input type="text" name='amendmentno' class="form-control"/>
+    <th class="text-center" colspan="2">TSI Drg. No. & Rev.</th>
+    <td colspan="4"><input type="text" name='dragno' class="form-control"/>
+  </tr>
+  <tr>
+    <th class="text-center" colspan="3">Date</th>
+    <td colspan="4"><input type="text" name='date1' class="form-control"/>
+    <th class="text-center" colspan="2">Inspection Date</th>
+    <td colspan="4"><input type="text" name='inspecdate' class="form-control"/>
+  </tr>
+  <tr>
+    <th class="text-center" colspan="3">Description</th>
+    <td colspan="4"><input type="text" name='desc1' class="form-control"/>
+    <th class="text-center" colspan="2">Qty. & S.No.</th>
+    <td colspan="4"><input type="text" name='qty' class="form-control"/>
+  </tr>
+   <tr>
+    <th class="text-center" colspan="3">Drg. No. & Rev.</th>
+    <td colspan="4"><input type="text" name='dragno1' class="form-control"/>
+    <th class="text-center" colspan="2">Page</th>
+    <td colspan="4"><input type="text" name='page' class="form-control"/>
+  </tr>
+    </thead>
+  </table>
+      
+      <br>
+    <button type="submit" name="submit" class="btn btn-default">Submit</button>
+ 
+
+</form>
+           
+            
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+</body>
+</html>
